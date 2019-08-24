@@ -1,0 +1,880 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V10.30.1.6000 for 8051              15/Aug/2019  17:19:55
+// Copyright 2004-2018 IAR Systems AB.
+// PC-locked license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\Source\SAPP_Device.c
+//    Command line       =  
+//        -f C:\Users\LENOVO\AppData\Local\Temp\EW6C28.tmp
+//        (D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\Source\SAPP_Device.c
+//        -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D
+//        LCD_SUPPORTED=DEBUG -D SAPP_ZSTACK -lC
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\RouterEB\List
+//        -lA
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\RouterEB\List
+//        --diag_suppress Pe001,Pa010 -o
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\RouterEB\Obj -e
+//        --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 8 -f
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wRouter.cfg
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+//        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+//        -DRTR_NWK) -f
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wConfig.cfg
+//        (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0092
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440) -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\ -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\Source\ -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\ZMain\TI2530DB\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\include\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\target\CC2530EB\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\include\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\high_level\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\single_chip\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mt\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\osal\include\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\saddr\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\sdata\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\af\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\nwk\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sapi\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sec\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sys\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\zdo\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\
+//        -I
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\f8w\
+//        -Ohz --require_prototypes --no_code_motion)
+//    Locale             =  Chinese (Simplified)_CHN.936
+//    List file          =  
+//        D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\RouterEB\List\SAPP_Device.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME SAPP_Device
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__register_banks", "*"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN __INIT_XDATA_I
+
+        PUBLIC funcCount
+        PUBLIC funcList
+`?<Name RouterTimeoutRoutine 0>` SYMBOL "RouterTimeoutRoutine"
+`??RouterTimeoutRoutine::?relay` SYMBOL "?relay", `?<Name RouterTimeoutRoutine 0>`
+
+        EXTERN `??RouterTimeoutRoutine::?relay`
+        FUNCTION `??RouterTimeoutRoutine::?relay`,00H
+
+// D:\IAR\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\Source\SAPP_Device.c
+//    1 #if defined(SAPP_ZSTACK)
+//    2 #include "SAPP_Device.h"
+//    3 #include "hal_io.h"
+//    4 #include <string.h>
+//    5 
+//    6 /**************************************************************/
+//    7 /* 传感器列表                                                 */
+//    8 /**************************************************************/
+//    9 /********************************/
+//   10 /* 燃气传感器                   */
+//   11 /********************************/
+//   12 #if defined(HAS_GAS)
+//   13 #define GAS_IO_GROUP        0
+//   14 #define GAS_IO_BIT          0
+//   15 void sensorGasResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//   16 void sensorGasResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//   17 {
+//   18     if(type == ResInit)
+//   19     {
+//   20         HalIOSetInput(GAS_IO_GROUP, GAS_IO_BIT, Pull_Down);
+//   21         HalIOIntSet(ep->ep, GAS_IO_GROUP, GAS_IO_BIT, IOInt_Rising, 0);
+//   22     }
+//   23     //IO端口中断触发，中断源检测
+//   24     if(type == ResIOInt)
+//   25     {
+//   26         uint8 GasValue = 1;
+//   27         SendData(ep->ep, &GasValue, 0x0000, TRANSFER_ENDPOINT, sizeof(GasValue));
+//   28     }
+//   29 }
+//   30 void sensorGasTimeout(struct ep_info_t *ep);
+//   31 void sensorGasTimeout(struct ep_info_t *ep)
+//   32 {
+//   33     uint8 value = HalIOGetLevel(GAS_IO_GROUP, GAS_IO_BIT);
+//   34     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//   35 }
+//   36 #endif
+//   37 /********************************/
+//   38 /* 温度传感器                   */
+//   39 /********************************/
+//   40 #if defined(HAS_TEMP) || defined(HAS_HUMM)
+//   41 #include "sht10.h"
+//   42 static uint16 TempValue = 0;
+//   43 #endif
+//   44 #if defined(HAS_TEMP)
+//   45 void sensorTempResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//   46 void sensorTempResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//   47 {
+//   48     if(type == ResInit)
+//   49     {
+//   50         SHT10_init(0x01);
+//   51     }
+//   52 }
+//   53 void sensorTempTimeout(struct ep_info_t *ep);
+//   54 void sensorTempTimeout(struct ep_info_t *ep)
+//   55 {
+//   56     unsigned int value = 0;
+//   57     unsigned char checksum = 0;
+//   58     SHT10_Measure(&value,&checksum, TEMPERATURE);
+//   59     TempValue = (value << 2) - 3960;
+//   60     SendData(ep->ep, TempValue, 0x0000, TRANSFER_ENDPOINT, sizeof(TempValue));
+//   61 }
+//   62 #endif
+//   63 /********************************/
+//   64 /* 湿度传感器                   */
+//   65 /********************************/
+//   66 #if defined(HAS_HUMM)
+//   67 void sensorHummResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//   68 void sensorHummResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//   69 {
+//   70     if(type == ResInit)
+//   71     {
+//   72         SHT10_init(0x01);
+//   73     }
+//   74 }
+//   75 void sensorHummTimeout(struct ep_info_t *ep);
+//   76 void sensorHummTimeout(struct ep_info_t *ep)
+//   77 {
+//   78     const float C1 = -4.0f;              // for 8 Bit
+//   79     const float C2 = +0.648f;            // for 8 Bit
+//   80     const float C3 = -0.0000072f;        // for 8 Bit
+//   81     const float T1 = 0.01f;              // for 8 bit
+//   82     const float T2 = 0.00128f;           // for 8 bit
+//   83     float rh_lin    =   0.0f;                     // rh_lin: Humidity linear
+//   84     float rh_true   =   0.0f;                    // rh_true: Temperature compensated humidity
+//   85     float t_C   = 0.0f;                        // t_C   : Temperature []
+//   86 
+//   87     unsigned int HumiValue = 0;
+//   88     unsigned char checksum = 0;
+//   89     SHT10_Measure(&HumiValue,&checksum, HUMIDITY);
+//   90     rh_lin=C3*HumiValue*HumiValue + C2*HumiValue + C1;     //calc. humidity from ticks to [%RH]
+//   91     rh_true=(t_C-25)*(T1+T2*HumiValue)+rh_lin;   //calc. temperature compensated humidity [%RH]
+//   92     if(rh_true>100)
+//   93         rh_true=100;       //cut if the value is outside of
+//   94     if(rh_true<0.1)
+//   95         rh_true=0.1f;       //the physical possible range
+//   96     HumiValue = (unsigned int)(rh_true * 100);
+//   97     SendData(ep->ep, &HumiValue, 0x0000, TRANSFER_ENDPOINT, sizeof(HumiValue));
+//   98 }
+//   99 #endif
+//  100 /********************************/
+//  101 /* 雨滴传感器                   */
+//  102 /********************************/
+//  103 #if defined(HAS_RAIN)
+//  104 #define RAIN_IO_GROUP       0
+//  105 #define RAIN_IO_BIT         0
+//  106 void sensorRainResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  107 void sensorRainResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  108 {
+//  109     if(type == ResInit)
+//  110     {
+//  111         HalIOSetInput(RAIN_IO_GROUP, RAIN_IO_BIT, Pull_None);
+//  112         HalIOIntSet(ep->ep, RAIN_IO_GROUP, RAIN_IO_BIT, IOInt_Rising, 0);
+//  113     }
+//  114     //IO端口中断触发，中断源检测
+//  115     if(type == ResIOInt)
+//  116     {
+//  117         uint8 RainValue = 1;
+//  118         SendData(ep->ep, &RainValue, 0x0000, TRANSFER_ENDPOINT, sizeof(RainValue));
+//  119     }
+//  120 }
+//  121 void sensorRainTimeout(struct ep_info_t *ep);
+//  122 void sensorRainTimeout(struct ep_info_t *ep)
+//  123 {
+//  124     uint8 value = HalIOGetLevel(RAIN_IO_GROUP, RAIN_IO_BIT);
+//  125     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//  126 }
+//  127 #endif
+//  128 /********************************/
+//  129 /* 火焰传感器                   */
+//  130 /********************************/
+//  131 #if defined(HAS_FIRE)
+//  132 #define FIRE_IO_GROUP       0
+//  133 #define FIRE_IO_BIT         0
+//  134 void sensorFireResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  135 void sensorFireResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  136 {
+//  137     if(type == ResInit)
+//  138     {
+//  139         HalIOSetInput(FIRE_IO_GROUP, FIRE_IO_BIT, Pull_Down);
+//  140         HalIOIntSet(ep->ep, FIRE_IO_GROUP, FIRE_IO_BIT, IOInt_Rising, 0);
+//  141     }
+//  142     //IO端口中断触发，中断源检测
+//  143     if(type == ResIOInt)
+//  144     {
+//  145         uint8 FireValue = 1;
+//  146         SendData(ep->ep, &FireValue, 0x0000, TRANSFER_ENDPOINT, sizeof(FireValue));
+//  147     }
+//  148 }
+//  149 void sensorFireTimeout(struct ep_info_t *ep);
+//  150 void sensorFireTimeout(struct ep_info_t *ep)
+//  151 {
+//  152     uint8 value = HalIOGetLevel(FIRE_IO_GROUP, FIRE_IO_BIT);
+//  153     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//  154 }
+//  155 #endif
+//  156 /********************************/
+//  157 /* 烟雾传感器                   */
+//  158 /********************************/
+//  159 #if defined(HAS_SMOKE)
+//  160 #define SMOKE_IO_GROUP      0
+//  161 #define SMOKE_IO_BIT        0
+//  162 void sensorSmokeResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  163 void sensorSmokeResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  164 {
+//  165     if(type == ResInit)
+//  166     {
+//  167         HalIOSetInput(SMOKE_IO_GROUP, SMOKE_IO_BIT, Pull_Down);
+//  168         HalIOIntSet(ep->ep, SMOKE_IO_GROUP, SMOKE_IO_BIT, IOInt_Rising, 0);
+//  169     }
+//  170     //IO端口中断触发，中断源检测
+//  171     if(type == ResIOInt)
+//  172     {
+//  173         uint8 SmokeValue = 1;
+//  174         SendData(ep->ep, &SmokeValue, 0x0000, TRANSFER_ENDPOINT, sizeof(SmokeValue));
+//  175     }
+//  176 }
+//  177 void sensorSmokeTimeout(struct ep_info_t *ep);
+//  178 void sensorSmokeTimeout(struct ep_info_t *ep)
+//  179 {
+//  180     uint8 value = HalIOGetLevel(SMOKE_IO_GROUP, SMOKE_IO_BIT);
+//  181     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//  182 }
+//  183 #endif
+//  184 /********************************/
+//  185 /* 光照度传感器                 */
+//  186 /********************************/
+//  187 #if defined(HAS_ILLUM)
+//  188 #include "hal_adc.h"
+//  189 void sensorILLumTimeout(struct ep_info_t *ep);
+//  190 void sensorILLumTimeout(struct ep_info_t *ep)
+//  191 {
+//  192     uint16 LightValue = 256 - (HalAdcRead(0, HAL_ADC_RESOLUTION_14) >> 3);
+//  193     // 将AD值变换为光照度的100倍
+//  194     LightValue = LightValue * 39;// * 10000 / 256;
+//  195     SendData(ep->ep, &LightValue, 0x0000, TRANSFER_ENDPOINT, sizeof(LightValue));
+//  196 }
+//  197 #endif
+//  198 /********************************/
+//  199 /* 安防传感器                   */
+//  200 /********************************/
+//  201 #if defined(HAS_IRPERS)
+//  202 #define SAFTY_IO_GROUP      1
+//  203 #define SAFTY_IO_BIT        0
+//  204 void sensorIRPersResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  205 void sensorIRPersResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  206 {
+//  207     if(type == ResInit)
+//  208     {
+//  209         HalIOSetInput(SAFTY_IO_GROUP, SAFTY_IO_BIT, Pull_Down);
+//  210         HalIOIntSet(ep->ep, SAFTY_IO_GROUP, SAFTY_IO_BIT, IOInt_Rising, 0);
+//  211     }
+//  212     //IO端口中断触发，中断源检测
+//  213     if(type == ResIOInt)
+//  214     {
+//  215         uint8 IRPersValue = 1;
+//  216         SendData(ep->ep, &IRPersValue, 0x0000, TRANSFER_ENDPOINT, sizeof(IRPersValue));
+//  217     }
+//  218 }
+//  219 void sensorIRPersTimeout(struct ep_info_t *ep);
+//  220 void sensorIRPersTimeout(struct ep_info_t *ep)
+//  221 {
+//  222     uint8 value = HalIOGetLevel(SAFTY_IO_GROUP, SAFTY_IO_BIT);
+//  223     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//  224 }
+//  225 #endif
+//  226 /********************************/
+//  227 /* 红外测距传感器               */
+//  228 /********************************/
+//  229 #if defined(HAS_IRDIST)
+//  230 #include "hal_adc.h"
+//  231 extern uint16 irDistTab[256];
+//  232 void sensorIRDistTimeout(struct ep_info_t *ep);
+//  233 void sensorIRDistTimeout(struct ep_info_t *ep)
+//  234 {
+//  235     uint8 value = HalAdcRead(0, HAL_ADC_RESOLUTION_14) >> 3;
+//  236     // 计算距离值value的单位为mm
+//  237     uint16 IRDistValue = irDistTab[value];
+//  238     SendData(ep->ep, &IRDistValue, 0x0000, TRANSFER_ENDPOINT, sizeof(IRDistValue));
+//  239 }
+//  240 #endif
+//  241 /********************************/
+//  242 /* 语音传感器                   */
+//  243 /********************************/
+//  244 #if defined(HAS_VOICE)
+//  245 #include "hal_uart.h"
+//  246 static struct ep_info_t *voiceEndPoint = NULL;
+//  247 static uint8 LastVoiceData = 0;
+//  248 static void sensorVoiceUartProcess( uint8 port, uint8 event );
+//  249 static void sensorVoiceUartProcess( uint8 port, uint8 event )
+//  250 {
+//  251     (void)event;  // Intentionally unreferenced parameter
+//  252     while (Hal_UART_RxBufLen(port))
+//  253     {
+//  254         HalUARTRead(port, &LastVoiceData, 1);
+//  255         if(LastVoiceData == 0xAA)
+//  256             LastVoiceData = 1;
+//  257         else if(LastVoiceData == 0x55)
+//  258             LastVoiceData = 0;
+//  259         else
+//  260             LastVoiceData = -1;
+//  261         if(voiceEndPoint != NULL)
+//  262             SendData(voiceEndPoint->ep, &LastVoiceData, 0x0000, TRANSFER_ENDPOINT, 1);
+//  263     }
+//  264 }
+//  265 void sensorVoiceNwkStateChange(struct ep_info_t *ep);
+//  266 void sensorVoiceNwkStateChange(struct ep_info_t *ep)
+//  267 {
+//  268     voiceEndPoint = ep;
+//  269 }
+//  270 void sensorVoiceResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  271 void sensorVoiceResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  272 {
+//  273     if(type == ResInit)
+//  274     {
+//  275         halUARTCfg_t uartConfig;
+//  276 
+//  277         voiceEndPoint = ep;
+//  278         /* UART Configuration */
+//  279         uartConfig.configured           = TRUE;
+//  280         uartConfig.baudRate             = HAL_UART_BR_9600;
+//  281         uartConfig.flowControl          = FALSE;
+//  282         uartConfig.flowControlThreshold = MT_UART_DEFAULT_THRESHOLD;
+//  283         uartConfig.rx.maxBufSize        = MT_UART_DEFAULT_MAX_RX_BUFF;
+//  284         uartConfig.tx.maxBufSize        = MT_UART_DEFAULT_MAX_TX_BUFF;
+//  285         uartConfig.idleTimeout          = MT_UART_DEFAULT_IDLE_TIMEOUT;
+//  286         uartConfig.intEnable            = TRUE;
+//  287         uartConfig.callBackFunc         = sensorVoiceUartProcess;
+//  288         HalUARTOpen(HAL_UART_PORT_1, &uartConfig);
+//  289     }
+//  290 }
+//  291 void sensorVoiceTimeout(struct ep_info_t *ep);
+//  292 void sensorVoiceTimeout(struct ep_info_t *ep)
+//  293 {
+//  294     uint8 nulData = 0;
+//  295     SendData(ep->ep, &nulData, 0x0000, TRANSFER_ENDPOINT, 1);
+//  296 }
+//  297 #endif
+//  298 /********************************/
+//  299 /* 二进制执行器传感器           */
+//  300 /********************************/
+//  301 
+//  302 /*
+//  303 #if defined(HAS_EXECUTEB)
+//  304 #define ControlInit()   do { HalIOSetOutput(1,4);HalIOSetOutput(1,5);HalIOSetOutput(1,6);HalIOSetOutput(1,7);Control(0); } while(0)
+//  305 #define Control(mask)   do { HalIOSetLevel(1,4,mask&0x01);HalIOSetLevel(1,5,mask&0x02);HalIOSetLevel(1,6,mask&0x04);HalIOSetLevel(1,7,mask&0x08); } while(0)
+//  306 void OutputExecuteBResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  307 void OutputExecuteBResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  308 {
+//  309     if(type == ResInit)
+//  310         ControlInit();
+//  311 }
+//  312 void outputExecuteB(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+//  313 void outputExecuteB(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+//  314 {
+//  315     //msg->Data[], msg->DataLength, msg->TransSeqNumber
+//  316     Control(msg->Data[0]);
+//  317     SendData(ep->ep, &msg->Data[0], 0x0000, TRANSFER_ENDPOINT, 1);
+//  318 }
+//  319 void outputExecuteBTimeout(struct ep_info_t *ep);
+//  320 void outputExecuteBTimeout(struct ep_info_t *ep)
+//  321 {
+//  322     uint8 value = P1 >> 4;
+//  323     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//  324 }
+//  325 #endif
+//  326 
+//  327 */
+//  328 /********************************/
+//  329 /* 模拟执行器传感器             */
+//  330 /********************************/
+//  331 #if defined(HAS_EXECUTEA)
+//  332 void outputExecuteA(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+//  333 void outputExecuteA(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+//  334 {
+//  335 }
+//  336 #endif
+//  337 /********************************/
+//  338 /* 遥控器传感器                 */
+//  339 /********************************/
+//  340 #if defined(HAS_REMOTER)
+//  341 #include "IR.h"
+//  342 static uint8 lastCode[32];
+//  343 static uint8 lastCodeLen = 0;
+//  344 void IRSendResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  345 void IRSendResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  346 {
+//  347     if(type == ResInit)
+//  348         IRSendInit();   // 需要初始化
+//  349 }
+//  350 void outputRemoter(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+//  351 void outputRemoter(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+//  352 {
+//  353    lastCodeLen = msg->Data[0];
+//  354    memcpy(lastCode, &msg->Data[1], lastCodeLen);
+//  355    GenIR(&msg->Data[1], IRGuideLen_9ms, (uint8)lastCodeLen);
+//  356    SendData(ep->ep, lastCode, 0x0000, TRANSFER_ENDPOINT, lastCodeLen>>3);
+//  357 }
+//  358 void outputRemoterTimeout(struct ep_info_t *ep);
+//  359 void outputRemoterTimeout(struct ep_info_t *ep)
+//  360 {
+//  361     if(lastCodeLen <= 0)
+//  362     {
+//  363         uint8 value = 0;
+//  364         SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, 1);
+//  365     }
+//  366     else
+//  367         SendData(ep->ep, lastCode, 0x0000, TRANSFER_ENDPOINT, lastCodeLen>>3);
+//  368 }
+//  369 #endif
+//  370 /********************************/
+//  371 /* 虚拟功能                     */
+//  372 /********************************/
+//  373 #if defined(HAS_TESTFUNCTION)
+//  374 #define TEST_STRING     "Z-Stack for SAPP"
+//  375 static uint8 lastData[119] = TEST_STRING;
+//  376 static uint8 lastLen = 0;
+//  377 void testFunc_RecvData(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+//  378 void testFunc_RecvData(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+//  379 {
+//  380     lastLen = msg->DataLength;
+//  381     memcpy(&lastData[sizeof(TEST_STRING) - 1], msg->Data, lastLen);
+//  382     SendData(ep->ep, lastData, 0x0000, TRANSFER_ENDPOINT,
+//  383                      lastLen + sizeof(TEST_STRING) - 1);
+//  384 }
+//  385 void testFunc_TimeOut(struct ep_info_t *ep);
+//  386 void testFunc_TimeOut(struct ep_info_t *ep)
+//  387 {
+//  388     SendData(ep->ep, lastData, 0x0000, TRANSFER_ENDPOINT,
+//  389                      lastLen + sizeof(TEST_STRING) - 1);
+//  390 }
+//  391 #endif
+//  392 /********************************/
+//  393 /* 广播发送功能                 */
+//  394 /********************************/
+//  395 #if defined(HAS_BROADCASTSEND)
+//  396 #define BROADCAST_STRING     "\r\nBroadcast Message\r\n"
+//  397 void BroadcastSend_TimeOut(struct ep_info_t *ep);
+//  398 void BroadcastSend_TimeOut(struct ep_info_t *ep)
+//  399 {
+//  400     SendData(ep->ep, BROADCAST_STRING, 0XFFFF, TRANSFER_ENDPOINT,
+//  401                      sizeof(BROADCAST_STRING) - 1);
+//  402     //广播后指示灯 LED_D9 闪烁2次
+//  403     HalLedBlink( HAL_LED_2, 2, 50, 100 );
+//  404 }
+//  405 #endif
+//  406 /********************************/
+//  407 /* 广播接收功能                 */
+//  408 /********************************/
+//  409 #if defined(HAS_BROADCASTRECEIVE)
+//  410 void BroadcastReceiveData(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+//  411 void BroadcastReceiveData(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+//  412 {
+//  413     //收到广播数据后 LED_D8 连续闪烁4次!
+//  414     HalLedBlink( HAL_LED_1, 4, 50, 120 );
+//  415     HalUARTWrite(HAL_UART_PORT_0, msg->Data, msg->DataLength);
+//  416 }
+//  417 #define BROADCAST_STRING     "Broadcast Message"
+//  418 void BroadcastSend_TimeOut(struct ep_info_t *ep);
+//  419 void BroadcastSend_TimeOut(struct ep_info_t *ep)
+//  420 {
+//  421     SendData(ep->ep, BROADCAST_STRING, 0X0000, TRANSFER_ENDPOINT,
+//  422                      sizeof(BROADCAST_STRING) - 1);
+//  423 }
+//  424 #endif
+//  425 /********************************/
+//  426 /* IC卡读卡器                   */
+//  427 /********************************/
+//  428 #if defined(HAS_125KREADER)
+//  429 #include "hal_uart.h"
+//  430 #define CARDID_SIZE     5                   // 卡号长度
+//  431 static uint8 lastCardId[CARDID_SIZE];       // 用来保存接收到的卡号
+//  432 static uint8 cardRecvIdx;                   // 上一次接收到的长度
+//  433 static uint32 lastTick;                     // 上一次接收数据的系统时间
+//  434 static struct ep_info_t *cardEndPoint;
+//  435 static void sensor125kReaderUartProcess( uint8 port, uint8 event );
+//  436 static void sensor125kReaderUartProcess( uint8 port, uint8 event )
+//  437 {
+//  438     (void)event;  // Intentionally unreferenced parameter
+//  439     if((lastTick + 100) <= osal_GetSystemClock())
+//  440     {                                       // 如果本次接收到的时间距离上次超过了0.1秒
+//  441         cardRecvIdx = 0;                    // 则清空计数器，重新接收卡号
+//  442     }
+//  443     lastTick = osal_GetSystemClock();       // 记录下当前的时间
+//  444     while (Hal_UART_RxBufLen(port))
+//  445     {
+//  446         uint16 restLen = Hal_UART_RxBufLen(port);
+//  447         if(restLen > (CARDID_SIZE - cardRecvIdx))
+//  448             restLen = CARDID_SIZE - cardRecvIdx;
+//  449         HalUARTRead(port, &lastCardId[cardRecvIdx], restLen);
+//  450         cardRecvIdx += restLen;
+//  451         if(cardRecvIdx >= CARDID_SIZE)      // 如果已经接收完成一个完整的卡号
+//  452         {                                   // 则发送给协调器
+//  453             SendData(cardEndPoint->ep, lastCardId, 0x0000, TRANSFER_ENDPOINT, CARDID_SIZE);
+//  454         }
+//  455     }
+//  456 }
+//  457 void sensor125kReaderResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  458 void sensor125kReaderResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  459 {
+//  460     if(type == ResInit)
+//  461     {
+//  462         halUARTCfg_t uartConfig;
+//  463 
+//  464         memset(lastCardId, 0, sizeof(lastCardId));
+//  465         cardRecvIdx = 0;
+//  466         cardEndPoint = ep;
+//  467         /* UART Configuration */
+//  468         uartConfig.configured           = TRUE;
+//  469         uartConfig.baudRate             = HAL_UART_BR_19200;
+//  470         uartConfig.flowControl          = FALSE;
+//  471         uartConfig.flowControlThreshold = MT_UART_DEFAULT_THRESHOLD;
+//  472         uartConfig.rx.maxBufSize        = MT_UART_DEFAULT_MAX_RX_BUFF;
+//  473         uartConfig.tx.maxBufSize        = MT_UART_DEFAULT_MAX_TX_BUFF;
+//  474         uartConfig.idleTimeout          = MT_UART_DEFAULT_IDLE_TIMEOUT;
+//  475         uartConfig.intEnable            = TRUE;
+//  476         uartConfig.callBackFunc         = sensor125kReaderUartProcess;
+//  477         HalUARTOpen(HAL_UART_PORT_0, &uartConfig);
+//  478     }
+//  479 }
+//  480 void sensor125kReaderTimeout(struct ep_info_t *ep);
+//  481 void sensor125kReaderTimeout(struct ep_info_t *ep)
+//  482 {
+//  483     uint8 nullId[CARDID_SIZE] = { 0x00 };
+//  484     SendData(cardEndPoint->ep, nullId, 0x0000, TRANSFER_ENDPOINT, CARDID_SIZE);
+//  485 }
+//  486 #endif
+//  487 /********************************/
+//  488 /* 语音播放节点                 */
+//  489 /********************************/
+//  490 #if defined(HAS_SPEAKER)
+//  491 void OutputSpeakerResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  492 void OutputSpeakerResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  493 {
+//  494     if(type == ResInit)
+//  495         HalUART1HwInit();
+//  496 }
+//  497 void outputSpeaker(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+//  498 void outputSpeaker(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+//  499 {
+//  500     //msg->Data[], msg->DataLength, msg->TransSeqNumber
+//  501     HalUART1HwTxByte(msg->Data[0]);
+//  502 //    SendData(ep->ep, &msg->Data[0], 0x0000, TRANSFER_ENDPOINT, 1);
+//  503 }
+//  504 void outputSpeakerTimeout(struct ep_info_t *ep);
+//  505 void outputSpeakerTimeout(struct ep_info_t *ep)
+//  506 {
+//  507     uint8 value = 0;
+//  508     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//  509 }
+//  510 #endif
+//  511 /********************************/
+//  512 /* 红外接收解码                 */
+//  513 /********************************/
+//  514 #if defined(HAS_IRDecode)
+//  515 #include <hal_irdec.h>
+//  516 void IRDecodeResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  517 void IRDecodeResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  518 {
+//  519     if(type == ResInit)
+//  520     {
+//  521         IRDecodeT1Init(ep->task_id, ep->ep);
+//  522     }
+//  523     //定时器1通道0一次红外解码结束,向上传送解码结果
+//  524     if(type == ResTimerInt)
+//  525     {
+//  526         OSALIRDecData_t *irData = (OSALIRDecData_t *)res;
+//  527         SendData(ep->ep, irData->irCode, 0x0000, TRANSFER_ENDPOINT, irData->irLen);
+//  528     }
+//  529 }
+//  530 void IRDecodeTimeout(struct ep_info_t *ep);
+//  531 void IRDecodeTimeout(struct ep_info_t *ep)
+//  532 {
+//  533     uint8 value = 0;
+//  534     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//  535 }
+//  536 #endif
+//  537 
+//  538 /********************************/
+//  539 /* 执行节点代码                 */
+//  540 /********************************/
+//  541 #if defined(HAS_EXECUTEB)
+//  542 #define ControlInit()   do { HalIOSetOutput(1,4);HalIOSetOutput(1,5);HalIOSetOutput(1,6);HalIOSetOutput(1,7);Control(0); } while(0)
+//  543 #define Control(mask)   do { HalIOSetLevel(1,4,mask&0x01);HalIOSetLevel(1,5,mask&0x02);HalIOSetLevel(1,6,mask&0x04);HalIOSetLevel(1,7,mask&0x08); } while(0)
+//  544 void OutputExecuteBResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  545 void OutputExecuteBResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  546 {
+//  547     if(type == ResInit)
+//  548         ControlInit();
+//  549 }
+//  550 void outputExecuteB(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+//  551 void outputExecuteB(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+//  552 {
+//  553     //msg->Data[], msg->DataLength, msg->TransSeqNumber
+//  554     Control(msg->Data[0]);
+//  555     SendData(ep->ep, &msg->Data[0], 0x0000, TRANSFER_ENDPOINT, 1);
+//  556 }
+//  557 void outputExecuteBTimeout(struct ep_info_t *ep);
+//  558 void outputExecuteBTimeout(struct ep_info_t *ep)
+//  559 {
+//  560     uint8 value = P1 >> 4;
+//  561     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//  562 }
+//  563 #endif
+//  564 
+//  565 
+//  566 /***************************************************/
+//  567 /* 节点功能列表                                    */
+//  568 /***************************************************/
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  569 struct ep_info_t funcList[] = {
+funcList:
+        DATA8
+        DS 33
+        REQUIRE `?<Initializer for funcList>`
+        REQUIRE __INIT_XDATA_I
+//  570 #if defined(HAS_GAS)
+//  571     {
+//  572         // 加入网络,收到数据,超时处理,资源变化
+//  573         NULL, NULL, sensorGasTimeout, sensorGasResAvailable,
+//  574         { DevGas, 0, 5 },                   // type, id, refresh cycle
+//  575     },
+//  576 #endif
+//  577 #if defined(HAS_TEMP)
+//  578     {
+//  579         NULL, NULL, sensorTempTimeout, sensorTempResAvailable,
+//  580         { DevTemp, 1, 5 },                 // type, id, refresh cycle
+//  581     },
+//  582 #endif
+//  583 #if defined(HAS_HUMM)
+//  584     {
+//  585         NULL, NULL, sensorHummTimeout, sensorHummResAvailable,
+//  586         { DevHumm, 0, 5 },                 // type, id, refresh cycle
+//  587     },
+//  588 #endif
+//  589 #if defined(HAS_ILLUM)
+//  590     {
+//  591         NULL, NULL, sensorILLumTimeout, NULL,
+//  592         { DevILLum, 0, 3 },                // type, id, refresh cycle
+//  593     },
+//  594 #endif
+//  595 #if defined(HAS_RAIN)
+//  596     {
+//  597         NULL, NULL, sensorRainTimeout, sensorRainResAvailable,
+//  598         { DevRain, 0, 5 },                 // type, id, refresh cycle
+//  599     },
+//  600 #endif
+//  601 #if defined(HAS_IRDIST)
+//  602     {
+//  603         NULL, NULL, sensorIRDistTimeout, NULL,
+//  604         { DevIRDist, 0, 3 },               // type, id, refresh cycle
+//  605     },
+//  606 #endif
+//  607 #if defined(HAS_SMOKE)
+//  608     {
+//  609         NULL, NULL, sensorSmokeTimeout, sensorSmokeResAvailable,
+//  610         { DevSmoke, 0, 5 },                 // type, id, refresh cycle
+//  611     },
+//  612 #endif
+//  613 #if defined(HAS_FIRE)
+//  614     {
+//  615         NULL, NULL, sensorFireTimeout, sensorFireResAvailable,
+//  616         { DevFire, 0, 3 },                  // type, id, refresh cycle
+//  617     },
+//  618 #endif
+//  619 #if defined(HAS_IRPERS)
+//  620     {
+//  621         NULL, NULL, sensorIRPersTimeout, sensorIRPersResAvailable,
+//  622         { DevIRPers, 0, 2 },                // type, id, refresh cycle
+//  623     },
+//  624 #endif
+//  625 #if defined(HAS_VOICE)
+//  626     {
+//  627         sensorVoiceNwkStateChange, NULL, sensorVoiceTimeout, sensorVoiceResAvailable,
+//  628         { DevVoice, 0, 5 },                // type, id, refresh cycle
+//  629     },
+//  630 #endif
+//  631 #if defined(HAS_EXECUTEB)
+//  632     {
+//  633         NULL, outputExecuteB, outputExecuteBTimeout, OutputExecuteBResAvailable,
+//  634         { DevExecuteB, 3, 10 },              // type, id, refresh cycle
+//  635     },
+//  636 #endif
+//  637 #if defined(HAS_EXECUTEA)
+//  638     {
+//  639         NULL, outputExecuteA, NULL, NULL,
+//  640         { DevExecuteA, 0, 3 },              // type, id, refresh cycle
+//  641     },
+//  642 #endif
+//  643 #if defined(HAS_REMOTER)
+//  644     {
+//  645         NULL, outputRemoter, outputRemoterTimeout, IRSendResAvailable,
+//  646         { DevRemoter, 0, 3 },              // type, id, refresh cycle
+//  647     },
+//  648 #endif
+//  649 #if defined(HAS_TESTFUNCTION)
+//  650     {
+//  651         NULL,
+//  652         testFunc_RecvData,
+//  653         testFunc_TimeOut,
+//  654         NULL,
+//  655         { DevTest, 0, 3 },
+//  656     },
+//  657 #endif
+//  658 #if defined(HAS_BROADCASTSEND)
+//  659     {
+//  660         NULL,
+//  661         NULL,
+//  662         BroadcastSend_TimeOut,
+//  663         NULL,
+//  664         { DevBroadcastSend, 0, 3 },
+//  665     },
+//  666 #endif
+//  667 #if defined(HAS_BROADCASTRECEIVE)
+//  668     {
+//  669         NULL,
+//  670         BroadcastReceiveData,
+//  671         BroadcastSend_TimeOut,
+//  672         NULL,
+//  673         { DevBroadcastReceive, 0, 30 },
+//  674     },
+//  675 #endif
+//  676 #if defined(HAS_125KREADER)
+//  677     {
+//  678         NULL, NULL, sensor125kReaderTimeout, sensor125kReaderResAvailable,
+//  679         { Dev125kReader, 0, 10 },
+//  680     },
+//  681 #endif
+//  682 #if defined(HAS_SPEAKER)
+//  683     {
+//  684         NULL, outputSpeaker, outputSpeakerTimeout, OutputSpeakerResAvailable,
+//  685         { DevSpeaker, 0, 9 },              // type, id, refresh cycle
+//  686     },
+//  687 #endif
+//  688 #if defined(HAS_IRDecode)
+//  689     {
+//  690         NULL, NULL, IRDecodeTimeout, IRDecodeResAvailable,
+//  691         { DevIRDecode, 0, 5 },              // type, id, refresh cycle
+//  692     },
+//  693 #endif
+//  694 #if defined(ZDO_COORDINATOR)
+//  695     {   // 协调器
+//  696         CoordinatorNwkStateChangeRoutine,
+//  697         CoordinatorIncomingRoutine,
+//  698         CoordinatorTimeoutRoutine,
+//  699         CoordinatorResAvailableRoutine,
+//  700         { DevCoordinator, 0, 0 },
+//  701     },
+//  702 #elif defined(RTR_NWK)
+//  703     {   // 路由器
+//  704         RouterNwkStateChangeRoutine,
+//  705         RouterIncomingRoutine,
+//  706         RouterTimeoutRoutine,
+//  707         RouterResAvailableRoutine,
+//  708         { DevRouter, 0, 30 },
+//  709     },
+//  710 #endif
+//  711 };
+//  712 
+//  713 // 不能修改下面的内容!!!
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  714 const uint8 funcCount = sizeof(funcList) / sizeof(funcList[0]);
+funcCount:
+        DB 1
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for funcList>`:
+        DATA16
+        DW 0H
+        DW 0H
+        DW `??RouterTimeoutRoutine::?relay`
+        DW 0H
+        DATA8
+        DB 240
+        DB 0
+        DB 30
+        DB 0, 0, 0, 0, 0, 0, 0, 0
+        DB 0, 0, 0, 0, 0, 0, 0, 0
+        DB 0, 0, 0, 0, 0, 0
+
+        END
+//  715 #endif
+// 
+// 33 bytes in segment XDATA_I
+// 33 bytes in segment XDATA_ID
+//  1 byte  in segment XDATA_ROM_C
+// 
+// 33 bytes of CODE  memory
+//  1 byte  of CONST memory
+// 33 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

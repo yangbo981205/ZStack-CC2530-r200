@@ -1,0 +1,2025 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V10.30.1.6000 for 8051              21/Aug/2019  19:43:28
+// Copyright 2004-2018 IAR Systems AB.
+// PC-locked license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\Source\SAPP_Device.c
+//    Command line       =  
+//        -f C:\Users\LENOVO\AppData\Local\Temp\EW92E7.tmp
+//        (D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\Source\SAPP_Device.c
+//        -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D SAPP_ZSTACK
+//        -lC
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\CoordinatorEB\List
+//        -lA
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\CoordinatorEB\List
+//        --diag_suppress Pe001,Pa010 -o
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\CoordinatorEB\Obj
+//        -e --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 8 -f
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wCoord.cfg
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_APP_PENDING_QUEUE=TRUE
+//        -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8 -DMAC_CFG_RX_MAX=5
+//        -DZDO_COORDINATOR -DRTR_NWK) -f
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\Tools\CC2530DB\f8wConfig.cfg
+//        (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0x0092
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440) -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\ -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\Source\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\zstack\ZMain\TI2530DB\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\include\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\hal\target\CC2530EB\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\include\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\high_level\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mac\low_level\srf04\single_chip\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\mt\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\osal\include\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\saddr\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\services\sdata\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\af\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\nwk\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sapi\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sec\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\sys\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\stack\zdo\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\
+//        -I
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\..\..\Components\zmac\f8w\
+//        -Ohz --require_prototypes --no_code_motion)
+//    Locale             =  Chinese (Simplified)_CHN.936
+//    List file          =  
+//        D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\CoordinatorEB\List\SAPP_Device.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME SAPP_Device
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__register_banks", "*"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V1
+        EXTERN ?V2
+        EXTERN ?V3
+        EXTERN ?V4
+        EXTERN ?V5
+        EXTERN ?ALLOC_XSTACK8
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?PUSH_XSTACK_I_ONE
+        EXTERN ?PUSH_XSTACK_I_TWO
+        EXTERN ?XSP
+        EXTERN ?XSTACK_DISP0_8
+        EXTERN ?XSTACK_DISP101_8
+        EXTERN __INIT_XDATA_I
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC `??roomPwrManSys_IncmRt::?relay`
+        FUNCTION `??roomPwrManSys_IncmRt::?relay`,0203H
+        PUBLIC `??roomPwrManSys_ResAvbRt::?relay`
+        FUNCTION `??roomPwrManSys_ResAvbRt::?relay`,0203H
+        PUBLIC `??roomPwrManSys_StaChgRt::?relay`
+        FUNCTION `??roomPwrManSys_StaChgRt::?relay`,0203H
+        PUBLIC `??roomPwrManSys_ToRt::?relay`
+        FUNCTION `??roomPwrManSys_ToRt::?relay`,0203H
+        PUBLIC descPkg
+        PUBLIC funcCount
+        PUBLIC funcList
+        PUBLIC roomPwrManSys_IncmRt
+        FUNCTION roomPwrManSys_IncmRt,0a1203H
+        ARGFRAME XSTACK, 2, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 19, STACK
+        PUBLIC roomPwrManSys_ResAvbRt
+        FUNCTION roomPwrManSys_ResAvbRt,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        PUBLIC roomPwrManSys_StaChgRt
+        FUNCTION roomPwrManSys_StaChgRt,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        PUBLIC roomPwrManSys_ToRt
+        FUNCTION roomPwrManSys_ToRt,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource SP:8, PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-2
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B SameValue
+          CFI A SameValue
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 SameValue
+          CFI R1 SameValue
+          CFI R2 SameValue
+          CFI R3 SameValue
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT SameValue
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon1
+        
+`?<Name CoordinatorIncomingR 0>` SYMBOL "CoordinatorIncomingRoutine"
+`??CoordinatorIncomingRoutine::?relay` SYMBOL "?relay", `?<Name CoordinatorIncomingR 0>`
+HalUARTWrite        SYMBOL "HalUARTWrite"
+`??HalUARTWrite::?relay` SYMBOL "?relay", HalUARTWrite
+SendData            SYMBOL "SendData"
+`??SendData::?relay` SYMBOL "?relay", SendData
+memcpy              SYMBOL "memcpy"
+`??memcpy::?relay`  SYMBOL "?relay", memcpy
+memset              SYMBOL "memset"
+`??memset::?relay`  SYMBOL "?relay", memset
+roomPwrManSys_IncmRt SYMBOL "roomPwrManSys_IncmRt"
+`??roomPwrManSys_IncmRt::?relay` SYMBOL "?relay", roomPwrManSys_IncmRt
+roomPwrManSys_ResAvbRt SYMBOL "roomPwrManSys_ResAvbRt"
+`??roomPwrManSys_ResAvbRt::?relay` SYMBOL "?relay", roomPwrManSys_ResAvbRt
+roomPwrManSys_StaChgRt SYMBOL "roomPwrManSys_StaChgRt"
+`??roomPwrManSys_StaChgRt::?relay` SYMBOL "?relay", roomPwrManSys_StaChgRt
+roomPwrManSys_ToRt  SYMBOL "roomPwrManSys_ToRt"
+`??roomPwrManSys_ToRt::?relay` SYMBOL "?relay", roomPwrManSys_ToRt
+
+        EXTERN `??CoordinatorIncomingRoutine::?relay`
+        FUNCTION `??CoordinatorIncomingRoutine::?relay`,00H
+        EXTERN `??HalUARTWrite::?relay`
+        FUNCTION `??HalUARTWrite::?relay`,00H
+        EXTERN `??SendData::?relay`
+        FUNCTION `??SendData::?relay`,00H
+        EXTERN `??memcpy::?relay`
+        FUNCTION `??memcpy::?relay`,00H
+        EXTERN `??memset::?relay`
+        FUNCTION `??memset::?relay`,00H
+        EXTERN HalUARTWrite
+        FUNCTION HalUARTWrite,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 17, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN SendData
+        FUNCTION SendData,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 19, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN memcpy
+        FUNCTION memcpy,010202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 19, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN memset
+        FUNCTION memset,010202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+
+// D:\IoT_hardware\实验指导书\ZStack-CC2530-r200\Projects\SappWsn\Source\SAPP_Device.c
+//    1 #if defined(SAPP_ZSTACK)
+//    2 #include "SAPP_Device.h"
+//    3 #include "hal_io.h"
+//    4 #include <string.h>
+//    5 
+//    6 
+//    7 /********************************/
+//    8 /* 协调器代码                   */
+//    9 /********************************/
+//   10 #if defined(ZDO_COORDINATOR)
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//   11 uint8 descPkg[] = {
+descPkg:
+        DATA8
+        DS 3
+        REQUIRE `?<Initializer for descPkg>`
+        REQUIRE __INIT_XDATA_I
+//   12     0x03, DevIRPers, 0
+//   13 };
+//   14 
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   15 static uint16 nodeNwkAddr[Devmax];
+nodeNwkAddr:
+        DS 8
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA32
+//   16 static uint8 nodeEndPoint[Devmax];
+nodeEndPoint:
+        DS 4
+        REQUIRE __INIT_XDATA_Z
+//   17 
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   18 static uint8 irPersStatus = 0;
+irPersStatus:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   19 static uint8 illumStatus = 0;
+illumStatus:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   20 static uint8 controlStatus = 0;
+controlStatus:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//   21 void roomPwrManSys_StaChgRt(struct ep_info_t *ep);
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   22 void roomPwrManSys_StaChgRt(struct ep_info_t *ep)
+roomPwrManSys_StaChgRt:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function roomPwrManSys_StaChgRt
+        CODE
+//   23 {
+        FUNCALL roomPwrManSys_StaChgRt, SendData
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        MOV       A,#-0x9
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV       A,R2
+        MOV       R6,A
+        MOV       A,R3
+        MOV       R7,A
+//   24     // 寻找人体红外节点 
+//   25     descPkg[1] = DevIRPers;
+        MOV       DPTR,#descPkg + 1
+        MOV       A,#0xd
+        MOVX      @DPTR,A
+//   26     SendData(ep->ep, descPkg, 0xFFFF, CONTROL_ENDPOINT, sizeof(descPkg));
+        ; Setup parameters for call to function SendData
+        MOV       ?V0,#0x3
+        MOV       R0,#?V0
+        LCALL     ?PUSH_XSTACK_I_ONE
+          CFI CFA_XSP16 add(XSP16, 10)
+        MOV       ?V0,#-0x10
+        MOV       R0,#?V0
+        LCALL     ?PUSH_XSTACK_I_ONE
+          CFI CFA_XSP16 add(XSP16, 11)
+        LCALL     ?Subroutine2 & 0xFFFF
+??CrossCallReturnLabel_2:
+        LCALL     ?DEALLOC_XSTACK8
+//   27 }
+          CFI EndBlock cfiBlock0
+        REQUIRE ?Subroutine0
+        ; // Fall through to label ?Subroutine0
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine0:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV       R7,#0x1
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock1
+//   28 void roomPwrManSys_IncmRt(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   29 void roomPwrManSys_IncmRt(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+roomPwrManSys_IncmRt:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function roomPwrManSys_IncmRt
+        CODE
+//   30 {
+        FUNCALL roomPwrManSys_IncmRt, SendData
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 19, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 19, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL roomPwrManSys_IncmRt, memcpy
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 19, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 19, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL roomPwrManSys_IncmRt, HalUARTWrite
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 17, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 17, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL roomPwrManSys_IncmRt, SendData
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 19, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 19, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V3
+        REQUIRE ?V4
+        REQUIRE ?V5
+        MOV       A,#-0xe
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 14)
+        ; Saved register size: 14
+        ; Auto size: 3
+        MOV       A,#-0x3
+        LCALL     ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 17)
+        MOV       ?V2,R2
+        MOV       ?V3,R3
+        MOV       A,#0x11
+        LCALL     ?XSTACK_DISP0_8
+        MOVX      A,@DPTR
+        MOV       R6,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R7,A
+//   31     //msg->Data[], msg->DataLength, msg->TransSeqNumber
+//   32     if((endPoint == CONTROL_ENDPOINT) && (msg->Data[0] == 0x03))
+        MOV       A,#-0x10
+        XRL       A,R1
+        JNZ       ??roomPwrManSys_IncmRt_0
+        LCALL     ?Subroutine3 & 0xFFFF
+??CrossCallReturnLabel_4:
+        XRL       A,#0x3
+        JNZ       ??roomPwrManSys_IncmRt_0
+//   33     {
+//   34         // endPoint: msg->Data[1], rCycle: msg->Data[2]
+//   35         // 将上一次寻找的节点地址和端点号保存起来
+//   36         nodeNwkAddr[descPkg[1]] = addr;
+        MOV       DPTR,#descPkg + 1
+        MOVX      A,@DPTR
+        MOV       R2,A
+        ADD       A,0xE0 /* A   */
+        MOV       R0,A
+        CLR       A
+        RLC       A
+        MOV       R1,A
+        MOV       A,#nodeNwkAddr & 0xff
+        ADD       A,R0
+        MOV       DPL,A
+        MOV       A,#(nodeNwkAddr >> 8) & 0xff
+        ADDC      A,R1
+        MOV       DPH,A
+        MOV       A,R4
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOV       A,R5
+        MOVX      @DPTR,A
+//   37         nodeEndPoint[descPkg[1]] = msg->Data[1];
+        LCALL     ?Subroutine4 & 0xFFFF
+??CrossCallReturnLabel_6:
+        INC       DPTR
+        MOVX      A,@DPTR
+        PUSH      A
+          CFI CFA_SP SP+-1
+        MOV       A,#nodeEndPoint & 0xff
+        ADD       A,R2
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,#(nodeEndPoint >> 8) & 0xff
+        MOV       DPH,A
+        POP       A
+          CFI CFA_SP SP+0
+        MOVX      @DPTR,A
+//   38         // 准备寻找下一个节点
+//   39         descPkg[1] = descPkg[1] + 1;
+        MOV       DPTR,#descPkg + 1
+        MOVX      A,@DPTR
+        INC       A
+        MOVX      @DPTR,A
+//   40         // 所有节点是否都已经寻找完毕?
+//   41         if(descPkg[1] < Devmax)
+        CLR       C
+        SUBB      A,#0x4
+        JC        $+5
+        LJMP      ??roomPwrManSys_IncmRt_1 & 0xFFFF
+//   42             SendData(ep->ep, descPkg, 0xFFFF, CONTROL_ENDPOINT, sizeof(descPkg));
+        ; Setup parameters for call to function SendData
+        MOV       ?V1,#0x3
+        MOV       R0,#?V1
+        LCALL     ?PUSH_XSTACK_I_ONE
+          CFI CFA_XSP16 add(XSP16, 18)
+        MOV       ?V1,#-0x10
+        MOV       R0,#?V1
+        LCALL     ?PUSH_XSTACK_I_ONE
+          CFI CFA_XSP16 add(XSP16, 19)
+        MOV       R4,#-0x1
+        MOV       R5,#-0x1
+        MOV       R2,#descPkg & 0xff
+        MOV       R3,#(descPkg >> 8) & 0xff
+        LCALL     ?Subroutine1 & 0xFFFF
+//   43     }
+??CrossCallReturnLabel_0:
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 17)
+        LJMP      ??roomPwrManSys_IncmRt_1 & 0xFFFF
+//   44     else
+//   45     {
+//   46         if(addr == nodeNwkAddr[DevIllum])
+??roomPwrManSys_IncmRt_0:
+        MOV       DPTR,#nodeNwkAddr + 10
+        MOVX      A,@DPTR
+        XRL       A,R4
+        JNZ       ??roomPwrManSys_IncmRt_2
+        INC       DPTR
+        MOVX      A,@DPTR
+        XRL       A,R5
+??roomPwrManSys_IncmRt_2:
+        JNZ       ??roomPwrManSys_IncmRt_3
+//   47         {
+//   48             // 接收到光照度传感器数据
+//   49             uint16 i = 0;
+        MOV       A,#0x1
+        LCALL     ?XSTACK_DISP0_8
+        CLR       A
+        MOVX      @DPTR,A
+        INC       DPTR
+        MOVX      @DPTR,A
+//   50             memcpy(&i, msg->Data, 2);
+        ; Setup parameters for call to function memcpy
+        MOV       ?V4,#0x2
+        MOV       ?V5,A
+        MOV       R0,#?V4
+        LCALL     ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 19)
+        MOV       DPL,R6
+        MOV       DPH,R7
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R4,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R5,A
+        MOV       A,#0x3
+        LCALL     ?XSTACK_DISP101_8
+        LCALL     `??memcpy::?relay`; Banked call to: memcpy
+        MOV       A,#0x2
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 17)
+//   51             illumStatus = i < 1000;
+        MOV       A,#0x1
+        LCALL     ?XSTACK_DISP0_8
+        CLR       C
+        MOVX      A,@DPTR
+        SUBB      A,#-0x18
+        INC       DPTR
+        MOVX      A,@DPTR
+        SUBB      A,#0x3
+        MOV       DPTR,#illumStatus
+        JNC       ??roomPwrManSys_IncmRt_4
+        MOV       A,#0x1
+        SJMP      ??roomPwrManSys_IncmRt_5
+??roomPwrManSys_IncmRt_4:
+        CLR       A
+??roomPwrManSys_IncmRt_5:
+        MOVX      @DPTR,A
+//   52             HalUARTWrite(HAL_UART_PORT_0, msg->Data, 2);
+        ; Setup parameters for call to function HalUARTWrite
+        MOV       R4,#0x2
+        MOV       R5,#0x0
+        MOV       DPL,R6
+        MOV       DPH,R7
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R2,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R3,A
+        MOV       R1,#0x0
+        LCALL     `??HalUARTWrite::?relay`; Banked call to: HalUARTWrite
+        SJMP      ??roomPwrManSys_IncmRt_6
+//   53         }
+//   54         else if(addr == nodeNwkAddr[DevIRPers])
+??roomPwrManSys_IncmRt_3:
+        MOV       DPTR,#nodeNwkAddr + 26
+        MOVX      A,@DPTR
+        XRL       A,R4
+        JNZ       ??roomPwrManSys_IncmRt_7
+        INC       DPTR
+        MOVX      A,@DPTR
+        XRL       A,R5
+??roomPwrManSys_IncmRt_7:
+        JNZ       ??roomPwrManSys_IncmRt_6
+//   55         {
+//   56             // 接收到人体红外传感器数据
+//   57             irPersStatus = !!(msg->Data[0]);
+        LCALL     ?Subroutine3 & 0xFFFF
+//   58         }
+??CrossCallReturnLabel_5:
+        MOV       DPTR,#irPersStatus
+        JZ        ??roomPwrManSys_IncmRt_8
+        MOV       A,#0x1
+        SJMP      ??roomPwrManSys_IncmRt_9
+??roomPwrManSys_IncmRt_8:
+        CLR       A
+??roomPwrManSys_IncmRt_9:
+        MOVX      @DPTR,A
+//   59         if(nodeNwkAddr[DevExecuter] != 0xFFFF)
+??roomPwrManSys_IncmRt_6:
+        MOV       DPTR,#nodeNwkAddr + 14
+        MOVX      A,@DPTR
+        CPL       A
+        JNZ       ??roomPwrManSys_IncmRt_10
+        INC       DPTR
+        MOVX      A,@DPTR
+        CPL       A
+??roomPwrManSys_IncmRt_10:
+        JZ        ??roomPwrManSys_IncmRt_1
+//   60         {
+//   61             // 如果执行节点存在
+//   62             uint8 ctrl = 0;
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        CLR       A
+        MOVX      @DPTR,A
+//   63             if(irPersStatus && illumStatus)
+        MOV       DPTR,#irPersStatus
+        MOVX      A,@DPTR
+        JZ        ??roomPwrManSys_IncmRt_11
+        MOV       DPTR,#illumStatus
+        MOVX      A,@DPTR
+        JZ        ??roomPwrManSys_IncmRt_11
+//   64                 ctrl = 1;
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOV       A,#0x1
+        MOVX      @DPTR,A
+//   65             // 如果灯光的当前状态与需要设置的状态不一样则发送数据
+//   66             if(controlStatus != ctrl)
+??roomPwrManSys_IncmRt_11:
+        MOV       DPTR,#controlStatus
+        MOVX      A,@DPTR
+        MOV       R0,A
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOVX      A,@DPTR
+        XRL       A,R0
+        JZ        ??roomPwrManSys_IncmRt_12
+//   67                 SendData(ep->ep, &ctrl, nodeNwkAddr[DevExecuter], nodeEndPoint[DevExecuter], 1);
+        ; Setup parameters for call to function SendData
+        MOV       ?V1,#0x1
+        MOV       R0,#?V1
+        LCALL     ?PUSH_XSTACK_I_ONE
+          CFI CFA_XSP16 add(XSP16, 18)
+        MOV       DPTR,#nodeEndPoint + 7
+        MOVX      A,@DPTR
+        MOV       ?V1,A
+        MOV       R0,#?V1
+        LCALL     ?PUSH_XSTACK_I_ONE
+          CFI CFA_XSP16 add(XSP16, 19)
+        MOV       DPTR,#nodeNwkAddr + 14
+        MOVX      A,@DPTR
+        MOV       R4,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R5,A
+        MOV       A,#0x2
+        LCALL     ?XSTACK_DISP101_8
+        LCALL     ?Subroutine1 & 0xFFFF
+??CrossCallReturnLabel_1:
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 17)
+//   68             controlStatus = ctrl;
+??roomPwrManSys_IncmRt_12:
+        MOV       DPL,?XSP + 0
+        MOV       DPH,?XSP + 1
+        MOVX      A,@DPTR
+        MOV       DPTR,#controlStatus
+        MOVX      @DPTR,A
+//   69         }
+//   70     }
+//   71 }
+??roomPwrManSys_IncmRt_1:
+        MOV       A,#0x3
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 14)
+        MOV       R7,#0x6
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock2
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine3:
+          CFI Block cfiCond3 Using cfiCommon0
+          CFI Function roomPwrManSys_IncmRt
+          CFI Conditional ??CrossCallReturnLabel_4
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 17)
+          CFI Block cfiCond4 Using cfiCommon0
+          CFI (cfiCond4) Function roomPwrManSys_IncmRt
+          CFI (cfiCond4) Conditional ??CrossCallReturnLabel_5
+          CFI (cfiCond4) R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI (cfiCond4) VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond4) V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond4) V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond4) V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond4) V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond4) V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond4) V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond4) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond4) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond4) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond4) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond4) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond4) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond4) CFA_SP SP+-2
+          CFI (cfiCond4) CFA_XSP16 add(XSP16, 17)
+          CFI Block cfiPicker5 Using cfiCommon1
+          CFI (cfiPicker5) NoFunction
+          CFI (cfiPicker5) Picker
+        LCALL     ?Subroutine4 & 0xFFFF
+??CrossCallReturnLabel_7:
+        MOVX      A,@DPTR
+        RET
+          CFI EndBlock cfiCond3
+          CFI EndBlock cfiCond4
+          CFI EndBlock cfiPicker5
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine4:
+          CFI Block cfiCond6 Using cfiCommon0
+          CFI Function roomPwrManSys_IncmRt
+          CFI Conditional ??CrossCallReturnLabel_6
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 17)
+          CFI Block cfiCond7 Using cfiCommon0
+          CFI (cfiCond7) Function roomPwrManSys_IncmRt
+          CFI (cfiCond7) Conditional ??CrossCallReturnLabel_7, ??CrossCallReturnLabel_4
+          CFI (cfiCond7) R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI (cfiCond7) VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond7) V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond7) V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond7) V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond7) V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond7) V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond7) V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond7) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond7) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond7) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond7) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond7) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond7) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond7) CFA_SP SP+-4
+          CFI (cfiCond7) CFA_XSP16 add(XSP16, 17)
+          CFI Block cfiCond8 Using cfiCommon0
+          CFI (cfiCond8) Function roomPwrManSys_IncmRt
+          CFI (cfiCond8) Conditional ??CrossCallReturnLabel_7, ??CrossCallReturnLabel_5
+          CFI (cfiCond8) R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI (cfiCond8) VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond8) V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond8) V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond8) V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond8) V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond8) V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond8) V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond8) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond8) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond8) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond8) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond8) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond8) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond8) CFA_SP SP+-4
+          CFI (cfiCond8) CFA_XSP16 add(XSP16, 17)
+          CFI Block cfiPicker9 Using cfiCommon1
+          CFI (cfiPicker9) NoFunction
+          CFI (cfiPicker9) Picker
+        MOV       DPL,R6
+        MOV       DPH,R7
+        INC       DPTR
+        INC       DPTR
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       R0,A
+        INC       DPTR
+        MOVX      A,@DPTR
+        MOV       DPH,A
+        MOV       DPL,R0
+        RET
+          CFI EndBlock cfiCond6
+          CFI EndBlock cfiCond7
+          CFI EndBlock cfiCond8
+          CFI EndBlock cfiPicker9
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine1:
+          CFI Block cfiCond10 Using cfiCommon0
+          CFI Function roomPwrManSys_IncmRt
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 19)
+          CFI Block cfiCond11 Using cfiCommon0
+          CFI (cfiCond11) Function roomPwrManSys_IncmRt
+          CFI (cfiCond11) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond11) R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI (cfiCond11) VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond11) V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond11) V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond11) V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond11) V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond11) V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond11) V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond11) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond11) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond11) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond11) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond11) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond11) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond11) CFA_SP SP+-2
+          CFI (cfiCond11) CFA_XSP16 add(XSP16, 19)
+          CFI Block cfiPicker12 Using cfiCommon1
+          CFI (cfiPicker12) NoFunction
+          CFI (cfiPicker12) Picker
+        MOV       A,?V2
+        ADD       A,#0xb
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,?V3
+        MOV       DPH,A
+        MOVX      A,@DPTR
+        MOV       R1,A
+        LCALL     `??SendData::?relay`; Banked call to: SendData
+        MOV       A,#0x2
+        RET
+          CFI EndBlock cfiCond10
+          CFI EndBlock cfiCond11
+          CFI EndBlock cfiPicker12
+//   72 void roomPwrManSys_ToRt(struct ep_info_t *ep);
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   73 void roomPwrManSys_ToRt(struct ep_info_t *ep)
+roomPwrManSys_ToRt:
+          CFI Block cfiBlock13 Using cfiCommon0
+          CFI Function roomPwrManSys_ToRt
+        CODE
+//   74 {
+        FUNCALL roomPwrManSys_ToRt, SendData
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        MOV       A,#-0x9
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV       A,R2
+        MOV       R6,A
+        MOV       A,R3
+        MOV       R7,A
+//   75     // 超时函数,用于检查节点搜索是否完成
+//   76     // 如果没有完成,则继续搜索
+//   77     if(descPkg[1] < Devmax)
+        MOV       DPTR,#descPkg + 1
+        MOVX      A,@DPTR
+        CLR       C
+        SUBB      A,#0x4
+        JNC       ??roomPwrManSys_ToRt_0
+//   78     {
+//   79         SendData(ep->ep, descPkg, 0xFFFF, CONTROL_ENDPOINT, sizeof(descPkg));
+        ; Setup parameters for call to function SendData
+        MOV       ?V0,#0x3
+        MOV       R0,#?V0
+        LCALL     ?PUSH_XSTACK_I_ONE
+          CFI CFA_XSP16 add(XSP16, 10)
+        MOV       ?V0,#-0x10
+        MOV       R0,#?V0
+        LCALL     ?PUSH_XSTACK_I_ONE
+          CFI CFA_XSP16 add(XSP16, 11)
+        LCALL     ?Subroutine2 & 0xFFFF
+//   80     }
+??CrossCallReturnLabel_3:
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 9)
+//   81 }
+??roomPwrManSys_ToRt_0:
+        LJMP      ?Subroutine0 & 0xFFFF
+          CFI EndBlock cfiBlock13
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+?Subroutine2:
+          CFI Block cfiCond14 Using cfiCommon0
+          CFI Function roomPwrManSys_StaChgRt
+          CFI Conditional ??CrossCallReturnLabel_2
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 11)
+          CFI Block cfiCond15 Using cfiCommon0
+          CFI (cfiCond15) Function roomPwrManSys_ToRt
+          CFI (cfiCond15) Conditional ??CrossCallReturnLabel_3
+          CFI (cfiCond15) R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond15) VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond15) V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond15) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond15) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond15) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond15) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond15) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond15) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond15) CFA_SP SP+-2
+          CFI (cfiCond15) CFA_XSP16 add(XSP16, 11)
+          CFI Block cfiPicker16 Using cfiCommon1
+          CFI (cfiPicker16) NoFunction
+          CFI (cfiPicker16) Picker
+        MOV       R4,#-0x1
+        MOV       R5,#-0x1
+        MOV       R2,#descPkg & 0xff
+        MOV       R3,#(descPkg >> 8) & 0xff
+        MOV       A,R6
+        ADD       A,#0xb
+        MOV       DPL,A
+        CLR       A
+        ADDC      A,R7
+        MOV       DPH,A
+        MOVX      A,@DPTR
+        MOV       R1,A
+        LCALL     `??SendData::?relay`; Banked call to: SendData
+        MOV       A,#0x2
+        RET
+          CFI EndBlock cfiCond14
+          CFI EndBlock cfiCond15
+          CFI EndBlock cfiPicker16
+//   82 void roomPwrManSys_ResAvbRt(struct ep_info_t *ep, RES_TYPE type, void *res);
+
+        RSEG BANKED_CODE:HUGECODE:NOROOT(0)
+//   83 void roomPwrManSys_ResAvbRt(struct ep_info_t *ep, RES_TYPE type, void *res)
+roomPwrManSys_ResAvbRt:
+          CFI Block cfiBlock17 Using cfiCommon0
+          CFI Function roomPwrManSys_ResAvbRt
+        CODE
+//   84 {
+        FUNCALL roomPwrManSys_ResAvbRt, memset
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL roomPwrManSys_ResAvbRt, memset
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        MOV       A,#-0xa
+        LCALL     ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+        MOV       A,R1
+        MOV       R6,A
+//   85     switch(type)
+        MOV       A,#0x1
+        XRL       A,R6
+        JNZ       ??roomPwrManSys_ResAvbRt_0
+//   86     {
+//   87     case ResInit:
+//   88         memset(nodeNwkAddr, 0xFF, sizeof(nodeNwkAddr));
+        ; Setup parameters for call to function memset
+        MOV       ?V0,#0x8
+        MOV       ?V1,#0x0
+        MOV       R0,#?V0
+        LCALL     ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 12)
+        MOV       R4,#-0x1
+        MOV       R5,#0x0
+        MOV       R2,#nodeNwkAddr & 0xff
+        MOV       R3,#(nodeNwkAddr >> 8) & 0xff
+        LCALL     `??memset::?relay`; Banked call to: memset
+        MOV       A,#0x2
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 10)
+//   89         memset(nodeEndPoint, 0xFF, sizeof(nodeEndPoint));
+        ; Setup parameters for call to function memset
+        MOV       ?V0,#0x4
+        MOV       R0,#?V0
+        LCALL     ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 12)
+        MOV       R4,#-0x1
+        MOV       R5,#0x0
+        MOV       R2,#nodeEndPoint & 0xff
+        MOV       R3,#(nodeEndPoint >> 8) & 0xff
+        LCALL     `??memset::?relay`; Banked call to: memset
+        MOV       A,#0x2
+        LCALL     ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 10)
+//   90         break;
+//   91     case ResUserTimer:
+//   92         break;
+//   93     case ResControlPkg:
+//   94         break;
+//   95     }
+//   96 }
+??roomPwrManSys_ResAvbRt_0:
+        MOV       R7,#0x2
+        LJMP      ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock17
+//   97 
+//   98 
+//   99 
+//  100 
+//  101 /**************************************************************/
+//  102 /* 传感器列表                                                 */
+//  103 /**************************************************************/
+//  104 /********************************/
+//  105 /* 燃气传感器                   */
+//  106 /********************************/
+//  107 #if defined(HAS_GAS)
+//  108 #define GAS_IO_GROUP        0
+//  109 #define GAS_IO_BIT          0
+//  110 void sensorGasResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  111 void sensorGasResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  112 {
+//  113     if(type == ResInit)
+//  114     {
+//  115         HalIOSetInput(GAS_IO_GROUP, GAS_IO_BIT, Pull_Down);
+//  116         HalIOIntSet(ep->ep, GAS_IO_GROUP, GAS_IO_BIT, IOInt_Rising, 0);
+//  117     }
+//  118     //IO端口中断触发，中断源检测
+//  119     if(type == ResIOInt)
+//  120     {
+//  121         uint8 GasValue = 1;
+//  122         SendData(ep->ep, &GasValue, 0x0000, TRANSFER_ENDPOINT, sizeof(GasValue));
+//  123     }
+//  124 }
+//  125 void sensorGasTimeout(struct ep_info_t *ep);
+//  126 void sensorGasTimeout(struct ep_info_t *ep)
+//  127 {
+//  128     uint8 value = HalIOGetLevel(GAS_IO_GROUP, GAS_IO_BIT);
+//  129     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//  130 }
+//  131 #endif
+//  132 /********************************/
+//  133 /* 温度传感器                   */
+//  134 /********************************/
+//  135 #if defined(HAS_TEMP) || defined(HAS_HUMM)
+//  136 #include "sht10.h"
+//  137 static uint16 TempValue = 0;
+//  138 #endif
+//  139 #if defined(HAS_TEMP)
+//  140 void sensorTempResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  141 void sensorTempResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  142 {
+//  143     if(type == ResInit)
+//  144     {
+//  145         SHT10_init(0x01);
+//  146     }
+//  147 }
+//  148 void sensorTempTimeout(struct ep_info_t *ep);
+//  149 void sensorTempTimeout(struct ep_info_t *ep)
+//  150 {
+//  151     unsigned int value = 0;
+//  152     unsigned char checksum = 0;
+//  153     SHT10_Measure(&value,&checksum, TEMPERATURE);
+//  154     TempValue = (value << 2) - 3960;
+//  155     SendData(ep->ep, &TempValue, 0x0000, TRANSFER_ENDPOINT, sizeof(TempValue));
+//  156 }
+//  157 #endif
+//  158 /********************************/
+//  159 /* 湿度传感器                   */
+//  160 /********************************/
+//  161 #if defined(HAS_HUMM)
+//  162 void sensorHummResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  163 void sensorHummResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  164 {
+//  165     if(type == ResInit)
+//  166     {
+//  167         SHT10_init(0x01);
+//  168     }
+//  169 }
+//  170 void sensorHummTimeout(struct ep_info_t *ep);
+//  171 void sensorHummTimeout(struct ep_info_t *ep)
+//  172 {
+//  173     const float C1 = -4.0f;              // for 8 Bit
+//  174     const float C2 = +0.648f;            // for 8 Bit
+//  175     const float C3 = -0.0000072f;        // for 8 Bit
+//  176     const float T1 = 0.01f;              // for 8 bit
+//  177     const float T2 = 0.00128f;           // for 8 bit
+//  178     float rh_lin    =   0.0f;                     // rh_lin: Humidity linear
+//  179     float rh_true   =   0.0f;                    // rh_true: Temperature compensated humidity
+//  180     float t_C   = 0.0f;                        // t_C   : Temperature []
+//  181 
+//  182     unsigned int HumiValue = 0;
+//  183     unsigned char checksum = 0;
+//  184     SHT10_Measure(&HumiValue,&checksum, HUMIDITY);
+//  185     rh_lin=C3*HumiValue*HumiValue + C2*HumiValue + C1;     //calc. humidity from ticks to [%RH]
+//  186     rh_true=(t_C-25)*(T1+T2*HumiValue)+rh_lin;   //calc. temperature compensated humidity [%RH]
+//  187     if(rh_true>100)
+//  188         rh_true=100;       //cut if the value is outside of
+//  189     if(rh_true<0.1)
+//  190         rh_true=0.1f;       //the physical possible range
+//  191     HumiValue = (unsigned int)(rh_true * 100);
+//  192     SendData(ep->ep, &HumiValue, 0x0000, TRANSFER_ENDPOINT, sizeof(HumiValue));
+//  193 }
+//  194 #endif
+//  195 /********************************/
+//  196 /* 雨滴传感器                   */
+//  197 /********************************/
+//  198 #if defined(HAS_RAIN)
+//  199 #define RAIN_IO_GROUP       0
+//  200 #define RAIN_IO_BIT         0
+//  201 void sensorRainResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  202 void sensorRainResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  203 {
+//  204     if(type == ResInit)
+//  205     {
+//  206         HalIOSetInput(RAIN_IO_GROUP, RAIN_IO_BIT, Pull_None);
+//  207         HalIOIntSet(ep->ep, RAIN_IO_GROUP, RAIN_IO_BIT, IOInt_Rising, 0);
+//  208     }
+//  209     //IO端口中断触发，中断源检测
+//  210     if(type == ResIOInt)
+//  211     {
+//  212         uint8 RainValue = 1;
+//  213         SendData(ep->ep, &RainValue, 0x0000, TRANSFER_ENDPOINT, sizeof(RainValue));
+//  214     }
+//  215 }
+//  216 void sensorRainTimeout(struct ep_info_t *ep);
+//  217 void sensorRainTimeout(struct ep_info_t *ep)
+//  218 {
+//  219     uint8 value = HalIOGetLevel(RAIN_IO_GROUP, RAIN_IO_BIT);
+//  220     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//  221 }
+//  222 #endif
+//  223 /********************************/
+//  224 /* 火焰传感器                   */
+//  225 /********************************/
+//  226 #if defined(HAS_FIRE)
+//  227 #define FIRE_IO_GROUP       0
+//  228 #define FIRE_IO_BIT         0
+//  229 void sensorFireResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  230 void sensorFireResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  231 {
+//  232     if(type == ResInit)
+//  233     {
+//  234         HalIOSetInput(FIRE_IO_GROUP, FIRE_IO_BIT, Pull_Down);
+//  235         HalIOIntSet(ep->ep, FIRE_IO_GROUP, FIRE_IO_BIT, IOInt_Rising, 0);
+//  236     }
+//  237     //IO端口中断触发，中断源检测
+//  238     if(type == ResIOInt)
+//  239     {
+//  240         uint8 FireValue = 1;
+//  241         SendData(ep->ep, &FireValue, 0x0000, TRANSFER_ENDPOINT, sizeof(FireValue));
+//  242     }
+//  243 }
+//  244 void sensorFireTimeout(struct ep_info_t *ep);
+//  245 void sensorFireTimeout(struct ep_info_t *ep)
+//  246 {
+//  247     uint8 value = HalIOGetLevel(FIRE_IO_GROUP, FIRE_IO_BIT);
+//  248     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//  249 }
+//  250 #endif
+//  251 /********************************/
+//  252 /* 烟雾传感器                   */
+//  253 /********************************/
+//  254 #if defined(HAS_SMOKE)
+//  255 #define SMOKE_IO_GROUP      0
+//  256 #define SMOKE_IO_BIT        0
+//  257 void sensorSmokeResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  258 void sensorSmokeResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  259 {
+//  260     if(type == ResInit)
+//  261     {
+//  262         HalIOSetInput(SMOKE_IO_GROUP, SMOKE_IO_BIT, Pull_Down);
+//  263         HalIOIntSet(ep->ep, SMOKE_IO_GROUP, SMOKE_IO_BIT, IOInt_Rising, 0);
+//  264     }
+//  265     //IO端口中断触发，中断源检测
+//  266     if(type == ResIOInt)
+//  267     {
+//  268         uint8 SmokeValue = 1;
+//  269         SendData(ep->ep, &SmokeValue, 0x0000, TRANSFER_ENDPOINT, sizeof(SmokeValue));
+//  270     }
+//  271 }
+//  272 void sensorSmokeTimeout(struct ep_info_t *ep);
+//  273 void sensorSmokeTimeout(struct ep_info_t *ep)
+//  274 {
+//  275     uint8 value = HalIOGetLevel(SMOKE_IO_GROUP, SMOKE_IO_BIT);
+//  276     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//  277 }
+//  278 #endif
+//  279 /********************************/
+//  280 /* 光照度传感器                 */
+//  281 /********************************/
+//  282 #if defined(HAS_ILLUM)
+//  283 #include "hal_adc.h"
+//  284 void sensorILLumTimeout(struct ep_info_t *ep);
+//  285 void sensorILLumTimeout(struct ep_info_t *ep)
+//  286 {
+//  287     uint16 LightValue = 256 - (HalAdcRead(0, HAL_ADC_RESOLUTION_14) >> 3);
+//  288     // 将AD值变换为光照度的100倍
+//  289     LightValue = LightValue * 39;// * 10000 / 256;
+//  290     SendData(ep->ep, &LightValue, 0x0000, TRANSFER_ENDPOINT, sizeof(LightValue));
+//  291 }
+//  292 #endif
+//  293 /********************************/
+//  294 /* 安防传感器                   */
+//  295 /********************************/
+//  296 #if defined(HAS_IRPERS)
+//  297 #define SAFTY_IO_GROUP      1
+//  298 #define SAFTY_IO_BIT        0
+//  299 void sensorIRPersResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  300 void sensorIRPersResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  301 {
+//  302     if(type == ResInit)
+//  303     {
+//  304         HalIOSetInput(SAFTY_IO_GROUP, SAFTY_IO_BIT, Pull_Down);
+//  305         HalIOIntSet(ep->ep, SAFTY_IO_GROUP, SAFTY_IO_BIT, IOInt_Rising, 0);
+//  306     }
+//  307     //IO端口中断触发，中断源检测
+//  308     if(type == ResIOInt)
+//  309     {
+//  310         uint8 IRPersValue = 1;
+//  311         SendData(ep->ep, &IRPersValue, 0x0000, TRANSFER_ENDPOINT, sizeof(IRPersValue));
+//  312     }
+//  313 }
+//  314 void sensorIRPersTimeout(struct ep_info_t *ep);
+//  315 void sensorIRPersTimeout(struct ep_info_t *ep)
+//  316 {
+//  317     uint8 value = HalIOGetLevel(SAFTY_IO_GROUP, SAFTY_IO_BIT);
+//  318     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//  319 }
+//  320 #endif
+//  321 /********************************/
+//  322 /* 红外测距传感器               */
+//  323 /********************************/
+//  324 #if defined(HAS_IRDIST)
+//  325 #include "hal_adc.h"
+//  326 extern uint16 irDistTab[256];
+//  327 void sensorIRDistTimeout(struct ep_info_t *ep);
+//  328 void sensorIRDistTimeout(struct ep_info_t *ep)
+//  329 {
+//  330     uint8 value = HalAdcRead(0, HAL_ADC_RESOLUTION_14) >> 3;
+//  331     // 计算距离值value的单位为mm
+//  332     uint16 IRDistValue = irDistTab[value];
+//  333     SendData(ep->ep, &IRDistValue, 0x0000, TRANSFER_ENDPOINT, sizeof(IRDistValue));
+//  334 }
+//  335 #endif
+//  336 /********************************/
+//  337 /* 语音传感器                   */
+//  338 /********************************/
+//  339 #if defined(HAS_VOICE)
+//  340 #include "hal_uart.h"
+//  341 static struct ep_info_t *voiceEndPoint = NULL;
+//  342 static uint8 LastVoiceData = 0;
+//  343 static void sensorVoiceUartProcess( uint8 port, uint8 event );
+//  344 static void sensorVoiceUartProcess( uint8 port, uint8 event )
+//  345 {
+//  346     (void)event;  // Intentionally unreferenced parameter
+//  347     while (Hal_UART_RxBufLen(port))
+//  348     {
+//  349         HalUARTRead(port, &LastVoiceData, 1);
+//  350         if(LastVoiceData == 0xAA)
+//  351             LastVoiceData = 1;
+//  352         else if(LastVoiceData == 0x55)
+//  353             LastVoiceData = 0;
+//  354         else
+//  355             LastVoiceData = -1;
+//  356         if(voiceEndPoint != NULL)
+//  357             SendData(voiceEndPoint->ep, &LastVoiceData, 0x0000, TRANSFER_ENDPOINT, 1);
+//  358     }
+//  359 }
+//  360 void sensorVoiceNwkStateChange(struct ep_info_t *ep);
+//  361 void sensorVoiceNwkStateChange(struct ep_info_t *ep)
+//  362 {
+//  363     voiceEndPoint = ep;
+//  364 }
+//  365 void sensorVoiceResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  366 void sensorVoiceResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  367 {
+//  368     if(type == ResInit)
+//  369     {
+//  370         halUARTCfg_t uartConfig;
+//  371 
+//  372         voiceEndPoint = ep;
+//  373         /* UART Configuration */
+//  374         uartConfig.configured           = TRUE;
+//  375         uartConfig.baudRate             = HAL_UART_BR_9600;
+//  376         uartConfig.flowControl          = FALSE;
+//  377         uartConfig.flowControlThreshold = MT_UART_DEFAULT_THRESHOLD;
+//  378         uartConfig.rx.maxBufSize        = MT_UART_DEFAULT_MAX_RX_BUFF;
+//  379         uartConfig.tx.maxBufSize        = MT_UART_DEFAULT_MAX_TX_BUFF;
+//  380         uartConfig.idleTimeout          = MT_UART_DEFAULT_IDLE_TIMEOUT;
+//  381         uartConfig.intEnable            = TRUE;
+//  382         uartConfig.callBackFunc         = sensorVoiceUartProcess;
+//  383         HalUARTOpen(HAL_UART_PORT_1, &uartConfig);
+//  384     }
+//  385 }
+//  386 void sensorVoiceTimeout(struct ep_info_t *ep);
+//  387 void sensorVoiceTimeout(struct ep_info_t *ep)
+//  388 {
+//  389     uint8 nulData = 0;
+//  390     SendData(ep->ep, &nulData, 0x0000, TRANSFER_ENDPOINT, 1);
+//  391 }
+//  392 #endif
+//  393 /********************************/
+//  394 /* 二进制执行器传感器           */
+//  395 /********************************/
+//  396 
+//  397 #if defined(HAS_EXECUTEB)
+//  398 #define ControlInit()   do { HalIOSetOutput(1,4);HalIOSetOutput(1,5);HalIOSetOutput(1,6);HalIOSetOutput(1,7);Control(0); } while(0)
+//  399 #define Control(mask)   do { HalIOSetLevel(1,4,mask&0x01);HalIOSetLevel(1,5,mask&0x02);HalIOSetLevel(1,6,mask&0x04);HalIOSetLevel(1,7,mask&0x08); } while(0)
+//  400 void OutputExecuteBResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  401 void OutputExecuteBResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  402 {
+//  403     if(type == ResInit)
+//  404         ControlInit();
+//  405 }
+//  406 void outputExecuteB(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+//  407 void outputExecuteB(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+//  408 {
+//  409     //msg->Data[], msg->DataLength, msg->TransSeqNumber
+//  410     Control(msg->Data[0]);
+//  411     SendData(ep->ep, &msg->Data[0], 0x0000, TRANSFER_ENDPOINT, 1);
+//  412 }
+//  413 void outputExecuteBTimeout(struct ep_info_t *ep);
+//  414 void outputExecuteBTimeout(struct ep_info_t *ep)
+//  415 {
+//  416     uint8 value = P1 >> 4;
+//  417     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//  418 }
+//  419 #endif
+//  420 
+//  421 /********************************/
+//  422 /* 模拟执行器传感器             */
+//  423 /********************************/
+//  424 #if defined(HAS_EXECUTEA)
+//  425 void outputExecuteA(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+//  426 void outputExecuteA(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+//  427 {
+//  428 }
+//  429 #endif
+//  430 /********************************/
+//  431 /* 遥控器传感器                 */
+//  432 /********************************/
+//  433 #if defined(HAS_REMOTER)
+//  434 #include "IR.h"
+//  435 static uint8 lastCode[32];
+//  436 static uint8 lastCodeLen = 0;
+//  437 void IRSendResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  438 void IRSendResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  439 {
+//  440     if(type == ResInit)
+//  441         IRSendInit();   // 需要初始化
+//  442 }
+//  443 void outputRemoter(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+//  444 void outputRemoter(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+//  445 {
+//  446    lastCodeLen = msg->Data[0];
+//  447    memcpy(lastCode, &msg->Data[1], lastCodeLen);
+//  448    GenIR(&msg->Data[1], IRGuideLen_9ms, (uint8)lastCodeLen);
+//  449    SendData(ep->ep, lastCode, 0x0000, TRANSFER_ENDPOINT, lastCodeLen>>3);
+//  450 }
+//  451 void outputRemoterTimeout(struct ep_info_t *ep);
+//  452 void outputRemoterTimeout(struct ep_info_t *ep)
+//  453 {
+//  454     if(lastCodeLen <= 0)
+//  455     {
+//  456         uint8 value = 0;
+//  457         SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, 1);
+//  458     }
+//  459     else
+//  460         SendData(ep->ep, lastCode, 0x0000, TRANSFER_ENDPOINT, lastCodeLen>>3);
+//  461 }
+//  462 #endif
+//  463 /********************************/
+//  464 /* 虚拟功能                     */
+//  465 /********************************/
+//  466 #if defined(HAS_TESTFUNCTION)
+//  467 #define TEST_STRING     "Z-Stack for SAPP"
+//  468 static uint8 lastData[119] = TEST_STRING;
+//  469 static uint8 lastLen = 0;
+//  470 void testFunc_RecvData(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+//  471 void testFunc_RecvData(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+//  472 {
+//  473     lastLen = msg->DataLength;
+//  474     memcpy(&lastData[sizeof(TEST_STRING) - 1], msg->Data, lastLen);
+//  475     SendData(ep->ep, lastData, 0x0000, TRANSFER_ENDPOINT,
+//  476                      lastLen + sizeof(TEST_STRING) - 1);
+//  477 }
+//  478 void testFunc_TimeOut(struct ep_info_t *ep);
+//  479 void testFunc_TimeOut(struct ep_info_t *ep)
+//  480 {
+//  481     SendData(ep->ep, lastData, 0x0000, TRANSFER_ENDPOINT,
+//  482                      lastLen + sizeof(TEST_STRING) - 1);
+//  483 }
+//  484 #endif
+//  485 /********************************/
+//  486 /* 广播发送功能                 */
+//  487 /********************************/
+//  488 #if defined(HAS_BROADCASTSEND)
+//  489 #define BROADCAST_STRING     "\r\nBroadcast Message\r\n"
+//  490 void BroadcastSend_TimeOut(struct ep_info_t *ep);
+//  491 void BroadcastSend_TimeOut(struct ep_info_t *ep)
+//  492 {
+//  493     SendData(ep->ep, BROADCAST_STRING, 0XFFFF, TRANSFER_ENDPOINT,
+//  494                      sizeof(BROADCAST_STRING) - 1);
+//  495     //广播后指示灯 LED_D9 闪烁2次
+//  496     HalLedBlink( HAL_LED_2, 2, 50, 100 );
+//  497 }
+//  498 #endif
+//  499 /********************************/
+//  500 /* 广播接收功能                 */
+//  501 /********************************/
+//  502 #if defined(HAS_BROADCASTRECEIVE)
+//  503 void BroadcastReceiveData(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+//  504 void BroadcastReceiveData(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+//  505 {
+//  506     //收到广播数据后 LED_D8 连续闪烁4次!
+//  507     HalLedBlink( HAL_LED_1, 4, 50, 120 );
+//  508     HalUARTWrite(HAL_UART_PORT_0, msg->Data, msg->DataLength);
+//  509 }
+//  510 #define BROADCAST_STRING     "Broadcast Message"
+//  511 void BroadcastSend_TimeOut(struct ep_info_t *ep);
+//  512 void BroadcastSend_TimeOut(struct ep_info_t *ep)
+//  513 {
+//  514     SendData(ep->ep, BROADCAST_STRING, 0X0000, TRANSFER_ENDPOINT,
+//  515                      sizeof(BROADCAST_STRING) - 1);
+//  516 }
+//  517 #endif
+//  518 /********************************/
+//  519 /* IC卡读卡器                   */
+//  520 /********************************/
+//  521 #if defined(HAS_125KREADER)
+//  522 #include "hal_uart.h"
+//  523 #define CARDID_SIZE     5                   // 卡号长度
+//  524 static uint8 lastCardId[CARDID_SIZE];       // 用来保存接收到的卡号
+//  525 static uint8 cardRecvIdx;                   // 上一次接收到的长度
+//  526 static uint32 lastTick;                     // 上一次接收数据的系统时间
+//  527 static struct ep_info_t *cardEndPoint;
+//  528 static void sensor125kReaderUartProcess( uint8 port, uint8 event );
+//  529 static void sensor125kReaderUartProcess( uint8 port, uint8 event )
+//  530 {
+//  531     (void)event;  // Intentionally unreferenced parameter
+//  532     if((lastTick + 100) <= osal_GetSystemClock())
+//  533     {                                       // 如果本次接收到的时间距离上次超过了0.1秒
+//  534         cardRecvIdx = 0;                    // 则清空计数器，重新接收卡号
+//  535     }
+//  536     lastTick = osal_GetSystemClock();       // 记录下当前的时间
+//  537     while (Hal_UART_RxBufLen(port))
+//  538     {
+//  539         uint16 restLen = Hal_UART_RxBufLen(port);
+//  540         if(restLen > (CARDID_SIZE - cardRecvIdx))
+//  541             restLen = CARDID_SIZE - cardRecvIdx;
+//  542         HalUARTRead(port, &lastCardId[cardRecvIdx], restLen);
+//  543         cardRecvIdx += restLen;
+//  544         if(cardRecvIdx >= CARDID_SIZE)      // 如果已经接收完成一个完整的卡号
+//  545         {                                   // 则发送给协调器
+//  546             SendData(cardEndPoint->ep, lastCardId, 0x0000, TRANSFER_ENDPOINT, CARDID_SIZE);
+//  547         }
+//  548     }
+//  549 }
+//  550 void sensor125kReaderResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  551 void sensor125kReaderResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  552 {
+//  553     if(type == ResInit)
+//  554     {
+//  555         halUARTCfg_t uartConfig;
+//  556 
+//  557         memset(lastCardId, 0, sizeof(lastCardId));
+//  558         cardRecvIdx = 0;
+//  559         cardEndPoint = ep;
+//  560         /* UART Configuration */
+//  561         uartConfig.configured           = TRUE;
+//  562         uartConfig.baudRate             = HAL_UART_BR_19200;
+//  563         uartConfig.flowControl          = FALSE;
+//  564         uartConfig.flowControlThreshold = MT_UART_DEFAULT_THRESHOLD;
+//  565         uartConfig.rx.maxBufSize        = MT_UART_DEFAULT_MAX_RX_BUFF;
+//  566         uartConfig.tx.maxBufSize        = MT_UART_DEFAULT_MAX_TX_BUFF;
+//  567         uartConfig.idleTimeout          = MT_UART_DEFAULT_IDLE_TIMEOUT;
+//  568         uartConfig.intEnable            = TRUE;
+//  569         uartConfig.callBackFunc         = sensor125kReaderUartProcess;
+//  570         HalUARTOpen(HAL_UART_PORT_0, &uartConfig);
+//  571     }
+//  572 }
+//  573 void sensor125kReaderTimeout(struct ep_info_t *ep);
+//  574 void sensor125kReaderTimeout(struct ep_info_t *ep)
+//  575 {
+//  576     uint8 nullId[CARDID_SIZE] = { 0x00 };
+//  577     SendData(cardEndPoint->ep, nullId, 0x0000, TRANSFER_ENDPOINT, CARDID_SIZE);
+//  578 }
+//  579 #endif
+//  580 /********************************/
+//  581 /* 语音播放节点                 */
+//  582 /********************************/
+//  583 #if defined(HAS_SPEAKER)
+//  584 void OutputSpeakerResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  585 void OutputSpeakerResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  586 {
+//  587     if(type == ResInit)
+//  588         HalUART1HwInit();
+//  589 }
+//  590 void outputSpeaker(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg);
+//  591 void outputSpeaker(struct ep_info_t *ep, uint16 addr, uint8 endPoint, afMSGCommandFormat_t *msg)
+//  592 {
+//  593     //msg->Data[], msg->DataLength, msg->TransSeqNumber
+//  594     HalUART1HwTxByte(msg->Data[0]);
+//  595 //    SendData(ep->ep, &msg->Data[0], 0x0000, TRANSFER_ENDPOINT, 1);
+//  596 }
+//  597 void outputSpeakerTimeout(struct ep_info_t *ep);
+//  598 void outputSpeakerTimeout(struct ep_info_t *ep)
+//  599 {
+//  600     uint8 value = 0;
+//  601     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//  602 }
+//  603 #endif
+//  604 /********************************/
+//  605 /* 红外接收解码                 */
+//  606 /********************************/
+//  607 #if defined(HAS_IRDecode)
+//  608 #include <hal_irdec.h>
+//  609 void IRDecodeResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res);
+//  610 void IRDecodeResAvailable(struct ep_info_t *ep, RES_TYPE type, void *res)
+//  611 {
+//  612     if(type == ResInit)
+//  613     {
+//  614         IRDecodeT1Init(ep->task_id, ep->ep);
+//  615     }
+//  616     //定时器1通道0一次红外解码结束,向上传送解码结果
+//  617     if(type == ResTimerInt)
+//  618     {
+//  619         OSALIRDecData_t *irData = (OSALIRDecData_t *)res;
+//  620         SendData(ep->ep, irData->irCode, 0x0000, TRANSFER_ENDPOINT, irData->irLen);
+//  621     }
+//  622 }
+//  623 void IRDecodeTimeout(struct ep_info_t *ep);
+//  624 void IRDecodeTimeout(struct ep_info_t *ep)
+//  625 {
+//  626     uint8 value = 0;
+//  627     SendData(ep->ep, &value, 0x0000, TRANSFER_ENDPOINT, sizeof(value));
+//  628 }
+//  629 #endif
+//  630 
+//  631 /***************************************************/
+//  632 /* 节点功能列表                                    */
+//  633 /***************************************************/
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  634 struct ep_info_t funcList[] = {
+funcList:
+        DATA8
+        DS 33
+        REQUIRE `?<Initializer for funcList>`
+        REQUIRE __INIT_XDATA_I
+//  635 #if defined(HAS_GAS)
+//  636     {
+//  637         // 加入网络,收到数据,超时处理,资源变化
+//  638         NULL, NULL, sensorGasTimeout, sensorGasResAvailable,
+//  639         { DevGas, 0, 5 },                   // type, id, refresh cycle
+//  640     },
+//  641 #endif
+//  642 #if defined(HAS_TEMP)
+//  643     {
+//  644         NULL, NULL, sensorTempTimeout, sensorTempResAvailable,
+//  645         { DevTemp, 1, 5 },                 // type, id, refresh cycle
+//  646     },
+//  647 #endif
+//  648 #if defined(HAS_HUMM)
+//  649     {
+//  650         NULL, NULL, sensorHummTimeout, sensorHummResAvailable,
+//  651         { DevHumm, 0, 5 },                 // type, id, refresh cycle
+//  652     },
+//  653 #endif
+//  654 #if defined(HAS_ILLUM)
+//  655     {
+//  656         NULL, NULL, sensorILLumTimeout, NULL,
+//  657         { DevILLum, 0, 3 },                // type, id, refresh cycle
+//  658     },
+//  659 #endif
+//  660 #if defined(HAS_RAIN)
+//  661     {
+//  662         NULL, NULL, sensorRainTimeout, sensorRainResAvailable,
+//  663         { DevRain, 0, 5 },                 // type, id, refresh cycle
+//  664     },
+//  665 #endif
+//  666 #if defined(HAS_IRDIST)
+//  667     {
+//  668         NULL, NULL, sensorIRDistTimeout, NULL,
+//  669         { DevIRDist, 0, 3 },               // type, id, refresh cycle
+//  670     },
+//  671 #endif
+//  672 #if defined(HAS_SMOKE)
+//  673     {
+//  674         NULL, NULL, sensorSmokeTimeout, sensorSmokeResAvailable,
+//  675         { DevSmoke, 0, 5 },                 // type, id, refresh cycle
+//  676     },
+//  677 #endif
+//  678 #if defined(HAS_FIRE)
+//  679     {
+//  680         NULL, NULL, sensorFireTimeout, sensorFireResAvailable,
+//  681         { DevFire, 0, 3 },                  // type, id, refresh cycle
+//  682     },
+//  683 #endif
+//  684 #if defined(HAS_IRPERS)
+//  685     {
+//  686         NULL, NULL, sensorIRPersTimeout, sensorIRPersResAvailable,
+//  687         { DevIRPers, 0, 2 },                // type, id, refresh cycle
+//  688     },
+//  689 #endif
+//  690 #if defined(HAS_VOICE)
+//  691     {
+//  692         sensorVoiceNwkStateChange, NULL, sensorVoiceTimeout, sensorVoiceResAvailable,
+//  693         { DevVoice, 0, 5 },                // type, id, refresh cycle
+//  694     },
+//  695 #endif
+//  696 #if defined(HAS_EXECUTEB)
+//  697     {
+//  698         NULL, outputExecuteB, outputExecuteBTimeout, OutputExecuteBResAvailable,
+//  699         { DevExecuteB, 3, 10 },              // type, id, refresh cycle
+//  700     },
+//  701 #endif
+//  702 #if defined(HAS_EXECUTEA)
+//  703     {
+//  704         NULL, outputExecuteA, NULL, NULL,
+//  705         { DevExecuteA, 0, 3 },              // type, id, refresh cycle
+//  706     },
+//  707 #endif
+//  708 #if defined(HAS_REMOTER)
+//  709     {
+//  710         NULL, outputRemoter, outputRemoterTimeout, IRSendResAvailable,
+//  711         { DevRemoter, 0, 3 },              // type, id, refresh cycle
+//  712     },
+//  713 #endif
+//  714 #if defined(HAS_TESTFUNCTION)
+//  715     {
+//  716         NULL,
+//  717         testFunc_RecvData,
+//  718         testFunc_TimeOut,
+//  719         NULL,
+//  720         { DevTest, 0, 3 },
+//  721     },
+//  722 #endif
+//  723 #if defined(HAS_BROADCASTSEND)
+//  724     {
+//  725         NULL,
+//  726         NULL,
+//  727         BroadcastSend_TimeOut,
+//  728         NULL,
+//  729         { DevBroadcastSend, 0, 3 },
+//  730     },
+//  731 #endif
+//  732 #if defined(HAS_BROADCASTRECEIVE)
+//  733     {
+//  734         NULL,
+//  735         BroadcastReceiveData,
+//  736         BroadcastSend_TimeOut,
+//  737         NULL,
+//  738         { DevBroadcastReceive, 0, 30 },
+//  739     },
+//  740 #endif
+//  741 #if defined(HAS_125KREADER)
+//  742     {
+//  743         NULL, NULL, sensor125kReaderTimeout, sensor125kReaderResAvailable,
+//  744         { Dev125kReader, 0, 10 },
+//  745     },
+//  746 #endif
+//  747 #if defined(HAS_SPEAKER)
+//  748     {
+//  749         NULL, outputSpeaker, outputSpeakerTimeout, OutputSpeakerResAvailable,
+//  750         { DevSpeaker, 0, 9 },              // type, id, refresh cycle
+//  751     },
+//  752 #endif
+//  753 #if defined(HAS_IRDecode)
+//  754     {
+//  755         NULL, NULL, IRDecodeTimeout, IRDecodeResAvailable,
+//  756         { DevIRDecode, 0, 5 },              // type, id, refresh cycle
+//  757     },
+//  758 #endif
+//  759 #if defined(ZDO_COORDINATOR)
+//  760     {   // 协调器
+//  761         CoordinatorNwkStateChangeRoutine,
+//  762         CoordinatorIncomingRoutine,
+//  763         CoordinatorTimeoutRoutine,
+//  764         CoordinatorResAvailableRoutine,
+//  765         { DevCoordinator, 0, 0 },
+//  766     },
+//  767 #elif defined(RTR_NWK)
+//  768     {   // 路由器
+//  769         RouterNwkStateChangeRoutine,
+//  770         RouterIncomingRoutine,
+//  771         RouterTimeoutRoutine,
+//  772         RouterResAvailableRoutine,
+//  773         { DevRouter, 0, 30 },
+//  774     },
+//  775 #endif
+//  776 };
+//  777 #endif
+//  778 
+//  779 // 不能修改下面的内容!!!
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  780 const uint8 funcCount = sizeof(funcList) / sizeof(funcList[0]);
+funcCount:
+        DB 1
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for descPkg>`:
+        DATA8
+        DB 3
+        DB 13
+        DB 0
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for funcList>`:
+        DATA16
+        DW 0H
+        DW `??CoordinatorIncomingRoutine::?relay`
+        DW 0H
+        DW 0H
+        DATA8
+        DB 241
+        DB 0
+        DB 0
+        DB 0, 0, 0, 0, 0, 0, 0, 0
+        DB 0, 0, 0, 0, 0, 0, 0, 0
+        DB 0, 0, 0, 0, 0, 0
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??roomPwrManSys_StaChgRt::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    roomPwrManSys_StaChgRt
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??roomPwrManSys_IncmRt::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    roomPwrManSys_IncmRt
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??roomPwrManSys_ToRt::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    roomPwrManSys_ToRt
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??roomPwrManSys_ResAvbRt::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    roomPwrManSys_ResAvbRt
+
+        END
+//  781 #endif
+// 
+// 591 bytes in segment BANKED_CODE
+//  24 bytes in segment BANK_RELAYS
+//  36 bytes in segment XDATA_I
+//  36 bytes in segment XDATA_ID
+//   1 byte  in segment XDATA_ROM_C
+//  15 bytes in segment XDATA_Z
+// 
+//  60 bytes of CODE     memory
+//   1 byte  of CONST    memory
+// 591 bytes of HUGECODE memory
+//  51 bytes of XDATA    memory
+//
+//Errors: none
+//Warnings: 5
